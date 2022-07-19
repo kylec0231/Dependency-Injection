@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 //@InstallIn(ApplicationComponent::class)
 @Module
-class DatabaseModule {
+object DatabaseModule {
 
     @Provides
     fun provideLogDao(database: AppDatabase): LogDao {
