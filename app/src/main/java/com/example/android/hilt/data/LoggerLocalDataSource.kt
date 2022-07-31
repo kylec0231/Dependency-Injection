@@ -18,6 +18,7 @@ package com.example.android.hilt.data
 
 import android.os.Handler
 import android.os.Looper
+import dagger.hilt.android.scopes.ActivityScoped
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import javax.inject.Inject
@@ -27,8 +28,8 @@ import javax.inject.Singleton
  * Data manager class that handles data manipulation between the database and the UI.
  */
 
-@Singleton
-//@ActivityScoped
+//@Singleton
+@ActivityScoped
 class LoggerLocalDataSource @Inject constructor(private val logDao: LogDao): LoggerDataSource {
 
     private val executorService: ExecutorService = Executors.newFixedThreadPool(4)

@@ -7,12 +7,14 @@ import com.example.android.hilt.data.LogDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 //import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
+@InstallIn(ActivityComponent::class)
+//@InstallIn(SingletonComponent::class)
 //@InstallIn(ApplicationComponent::class)
 @Module
 object DatabaseModule {
@@ -23,7 +25,8 @@ object DatabaseModule {
     }
 
     @Provides
-    @Singleton
+//    @Singleton
+//    fun provideDatabase(appContext: Context): AppDatabase {
     fun provideDatabase(@ApplicationContext appContext: Context): AppDatabase {
         return Room.databaseBuilder(
             appContext,

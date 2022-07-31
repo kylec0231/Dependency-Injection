@@ -20,22 +20,26 @@ annotation class InMemoryLogger
 annotation class DatabaseLogger
 
 
-@InstallIn(SingletonComponent::class)
+//@InstallIn(SingletonComponent::class)
+@InstallIn(ActivityComponent::class)
 @Module
 abstract class LoggingDatabaseModule {
 
     @DatabaseLogger
-    @Singleton
+    @ActivityScoped
+//    @Singleton
     @Binds
     abstract fun bindDatabaseLogger(impl: LoggerLocalDataSource): LoggerDataSource
 }
 
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
+//@InstallIn(ActivityComponent::class)
 @Module
 abstract class LoggingInMemoryModule {
 
     @InMemoryLogger
-    @ActivityScoped
+    @Singleton
+//    @ActivityScoped
     @Binds
     abstract fun bindInMemoryLogger(impl: LoggerInMemoryDataSource): LoggerDataSource
 }

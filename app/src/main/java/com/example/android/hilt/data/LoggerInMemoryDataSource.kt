@@ -3,8 +3,10 @@ package com.example.android.hilt.data
 import dagger.hilt.android.scopes.ActivityScoped
 import java.util.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@ActivityScoped
+@Singleton
+//@ActivityScoped
 class LoggerInMemoryDataSource @Inject constructor(): LoggerDataSource {
 
     private val logs = LinkedList<Log>()
